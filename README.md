@@ -25,7 +25,6 @@ A browser extension that provides real-time Vietnamese stock market tracking wit
 1. Clone this repository:
 ```bash
 git clone https://github.com/yourusername/vn-stock-tracker.git
-```
 
 Load the extension in Chrome/Edge:
 
@@ -88,3 +87,4 @@ LicenseThis project is licensed under the MIT License - see the LICENSE file for
 Stock data provided by SSI
 Icon assets from [https://www.streamlinehq.com]
 If you find this project helpful, please consider giving it a star ⭐
+```
