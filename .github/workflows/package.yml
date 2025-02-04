@@ -1,0 +1,44 @@
+name: Package Extension
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on version tags v1.0.0, v1.2.3, etc.
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Create extension directory
+        run: |
+          mkdir extension
+          cp -r manifest.json popup.html popup.js background.js content.js styles.css icons extension/
+
+      - name: Create ZIP file
+        run: |
+          cd extension
+          zip -r ../vn-stock-tracker-${{ env.VERSION }}.zip .
+
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: vn-stock-tracker-${{ env.VERSION }}
+          path: vn-stock-tracker-${{ env.VERSION }}.zip
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: vn-stock-tracker-${{ env.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
