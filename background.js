@@ -41,7 +41,7 @@ async function fetchStockData(stockCodes) {
 }
 
 // Update stock data every 5 minutes
-chrome.alarms.create('updateStocks', { periodInMinutes: 5 });
+chrome.alarms.create('updateStocks', { periodInMinutes: 1 });
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
   if (alarm.name === 'updateStocks') {
