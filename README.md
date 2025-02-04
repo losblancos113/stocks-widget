@@ -25,6 +25,7 @@ A browser extension that provides real-time Vietnamese stock market tracking wit
 1. Clone this repository:
 ```bash
 git clone https://github.com/yourusername/vn-stock-tracker.git
+```
 
 Load the extension in Chrome/Edge:
 
