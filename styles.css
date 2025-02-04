@@ -1,0 +1,377 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+} */
+
+/* Container styles */
+.container {
+  width: 320px;
+  padding: 16px;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.market-status {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.market-status.open {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.market-status.closed {
+  background: #fce8e6;
+  color: #c5221f;
+}
+
+/* Input group styles */
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+/* Button styles */
+.primary-button {
+  padding: 8px 16px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.primary-button:hover {
+  background: #106ebe;
+}
+
+.secondary-button {
+  padding: 8px 16px;
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.secondary-button:hover {
+  background: #e0e0e0;
+}
+
+/* Stock list styles */
+.stocks-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.stock-item {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stock-code {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.stock-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.change {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.positive {
+  color: #137333;
+  background: #e6f4ea;
+}
+
+.negative {
+  color: #c5221f;
+  background: #fce8e6;
+}
+
+.neutral {
+  color: #666;
+  background: #f0f0f0;
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.remove-button:hover {
+  color: #c5221f;
+}
+
+/* Settings styles */
+.settings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+}
+
+/* Switch styles */
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #0078d4;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Widget styles */
+#vns-stock-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  width: 280px;
+  transition: opacity 0.3s;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+#vns-stock-widget * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#vns-stock-widget.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#vns-stock-widget.dragging {
+  cursor: grabbing;
+  opacity: 0.9;
+}
+
+#vns-stock-widget .widget-header {
+  padding: 12px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+}
+
+#vns-stock-widget .widget-header:active {
+  cursor: grabbing;
+}
+
+#vns-stock-widget .widget-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#vns-stock-widget .widget-controls {
+  display: flex;
+  gap: 8px;
+}
+
+#vns-stock-widget .widget-controls button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+#vns-stock-widget .widget-controls button:hover {
+  background: #eee;
+}
+
+#vns-stock-widget .widget-content-wrapper {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px;
+}
+
+#vns-stock-widget .widget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#vns-stock-widget .widget-stock-item {
+  padding: 8px;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+#vns-stock-widget .widget-stock-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+#vns-stock-widget .widget-stock-code {
+  font-weight: 600;
+}
+
+#vns-stock-widget .widget-stock-price {
+  font-weight: 500;
+}
+
+#vns-stock-widget .widget-stock-change {
+  font-size: 12px;
+}
+
+#vns-stock-widget .positive {
+  color: #137333;
+  background: #e6f4ea;
+}
+
+#vns-stock-widget .negative {
+  color: #c5221f;
+  background: #fce8e6;
+}
+
+#vns-stock-widget .neutral {
+  color: #666;
+  background: #f0f0f0;
+}
+
+/* Scoped scrollbar styles */
+#vns-stock-widget .widget-content-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+#vns-stock-widget .widget-content-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+#vns-stock-widget .widget-content-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+#vns-stock-widget .widget-content-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+

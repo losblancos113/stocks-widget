@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VN Stock Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>VN Stock Tracker</h1>
+      <div class="market-status" id="marketStatus"></div>
+    </header>
+
+    <div class="input-group">
+      <input 
+        type="text" 
+        id="stockInput" 
+        placeholder="Enter stock code (e.g., MBG, VNM)"
+        maxlength="10"
+      >
+      <button id="addStock" class="primary-button">Add</button>
+    </div>
+
+    <div class="stocks-container" id="stockList">
+      <!-- Stock items will be inserted here -->
+    </div>
+
+    <div class="settings">
+      <label class="switch">
+        <input type="checkbox" id="widgetToggle">
+        <span class="slider round"></span>
+        Show Widget
+      </label>
+      <button id="clearStocks" class="secondary-button">Clear All</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
