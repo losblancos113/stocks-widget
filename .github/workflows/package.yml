@@ -31,7 +31,7 @@ jobs:
           zip -r ../vn-stock-tracker-${{ env.VERSION }}.zip .
 
       - name: Upload ZIP as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: vn-stock-tracker-${{ env.VERSION }}
           path: vn-stock-tracker-${{ env.VERSION }}.zip
