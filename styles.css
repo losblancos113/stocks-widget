@@ -1,59 +1,56 @@
-/* Reset and base styles */
-* {
+/* Popup Styles - All scoped under .vns-container */
+.vns-container {
+  width: 320px;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  color: #333;
+  background: #f5f5f5;
+}
+
+.vns-container * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-} */
-
-/* Container styles */
-.container {
-  width: 320px;
-  padding: 16px;
-}
-
 /* Header styles */
-.header {
+.vns-container .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
 
-h1 {
+.vns-container h1 {
   font-size: 18px;
   font-weight: 600;
 }
 
-.market-status {
+.vns-container .market-status {
   font-size: 14px;
   padding: 4px 8px;
   border-radius: 4px;
 }
 
-.market-status.open {
+.vns-container .market-status.open {
   background: #e6f4ea;
   color: #137333;
 }
 
-.market-status.closed {
+.vns-container .market-status.closed {
   background: #fce8e6;
   color: #c5221f;
 }
 
 /* Input group styles */
-.input-group {
+.vns-container .input-group {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-input {
+.vns-container input {
   flex: 1;
   padding: 8px 12px;
   border: 1px solid #ddd;
@@ -61,14 +58,14 @@ input {
   font-size: 14px;
 }
 
-input:focus {
+.vns-container input:focus {
   outline: none;
   border-color: #0078d4;
   box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
 }
 
 /* Button styles */
-.primary-button {
+.vns-container .primary-button {
   padding: 8px 16px;
   background: #0078d4;
   color: white;
@@ -79,11 +76,11 @@ input:focus {
   transition: background 0.2s;
 }
 
-.primary-button:hover {
+.vns-container .primary-button:hover {
   background: #106ebe;
 }
 
-.secondary-button {
+.vns-container .secondary-button {
   padding: 8px 16px;
   background: #f0f0f0;
   color: #333;
@@ -94,18 +91,18 @@ input:focus {
   transition: background 0.2s;
 }
 
-.secondary-button:hover {
+.vns-container .secondary-button:hover {
   background: #e0e0e0;
 }
 
 /* Stock list styles */
-.stocks-container {
+.vns-container .stocks-container {
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 16px;
 }
 
-.stock-item {
+.vns-container .stock-item {
   background: white;
   border-radius: 8px;
   padding: 12px;
@@ -113,60 +110,60 @@ input:focus {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.stock-header {
+.vns-container .stock-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.stock-code {
+.vns-container .stock-code {
   font-weight: 600;
   font-size: 16px;
 }
 
-.stock-details {
+.vns-container .stock-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.price {
+.vns-container .price {
   font-size: 18px;
   font-weight: 600;
 }
 
-.change {
+.vns-container .change {
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
 }
 
-.positive {
+.vns-container .positive {
   color: #137333;
   background: #e6f4ea;
 }
 
-.negative {
+.vns-container .negative {
   color: #c5221f;
   background: #fce8e6;
 }
 
-.neutral {
+.vns-container .neutral {
   color: #666;
   background: #f0f0f0;
 }
 
-.stock-info {
+.vns-container .stock-info {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
   color: #666;
 }
 
-.remove-button {
+.vns-container .remove-button {
   background: none;
   border: none;
   color: #666;
@@ -175,12 +172,12 @@ input:focus {
   padding: 0 4px;
 }
 
-.remove-button:hover {
+.vns-container .remove-button:hover {
   color: #c5221f;
 }
 
 /* Settings styles */
-.settings {
+.vns-container .settings {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -189,28 +186,28 @@ input:focus {
 }
 
 /* Switch styles */
-.switch {
+.vns-container .switch {
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
 }
 
-.switch input {
+.vns-container .switch input {
   display: none;
 }
 
-.slider {
+.vns-container .slider {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 20px;
   background-color: #ccc;
   border-radius: 20px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.vns-container .slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -219,18 +216,37 @@ input:focus {
   bottom: 2px;
   background-color: white;
   border-radius: 50%;
-  transition: .4s;
+  transition: 0.4s;
 }
 
-input:checked + .slider {
+.vns-container input:checked + .slider {
   background-color: #0078d4;
 }
 
-input:checked + .slider:before {
+.vns-container input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-/* Widget styles */
+/* Scrollbar styles for the container */
+.vns-container ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vns-container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.vns-container ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.vns-container ::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Widget styles - Kept separate as they're for a different component */
 #vns-stock-widget {
   position: fixed;
   bottom: 20px;
@@ -242,7 +258,8 @@ input:checked + .slider:before {
   width: 280px;
   transition: opacity 0.3s;
   user-select: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #333;
@@ -374,4 +391,3 @@ input:checked + .slider:before {
 #vns-stock-widget .widget-content-wrapper::-webkit-scrollbar-thumb:hover {
   background: #666;
 }
-
