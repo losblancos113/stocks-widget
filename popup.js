@@ -93,7 +93,7 @@ class StockManager {
         <div class="stock-item ${changeClass}">
           <div class="stock-header">
             <span class="stock-code">${code}</span>
-            <button class="remove-button" onclick="stockManager.removeStock('${code}')">×</button>
+            <button class="remove-button" data-stock-code="${code}">×</button>
           </div>
           <div class="stock-details">
             <div class="price">${
@@ -111,6 +111,19 @@ class StockManager {
       `;
       })
       .join("");
+
+    // Attach event listeners to remove buttons
+    this.attachRemoveButtonListeners();
+  }
+
+  attachRemoveButtonListeners() {
+    const removeButtons = document.querySelectorAll(".remove-button");
+    removeButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const stockCode = e.target.getAttribute("data-stock-code");
+        this.removeStock(stockCode);
+      });
+    });
   }
 }
 
