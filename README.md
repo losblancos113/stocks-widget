@@ -13,7 +13,7 @@ A browser extension that provides real-time Vietnamese stock market tracking wit
 - 📱 Minimizable widget interface
 - 📈 Multiple stock tracking
 - ⏰ Market hours indicator
-- 🔄 Auto-updates every 5 minutes
+- 🔄 Auto-updates every 1 minute
 
 ## Installation
 
